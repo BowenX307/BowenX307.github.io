@@ -111,6 +111,7 @@ export const projects: Project[] = [
       { label: '6+ hour runs', text: 'Built a checkpoint-and-resume GPU harness (Drive-backed outputs, merged timing logs) so long runs survive disconnects and restarts.' },
     ],
     stack: ['Python', 'Hugging Face', 'MultiPL-E', 'Colab GPU'],
+    links: [{ label: 'GitHub', href: 'https://github.com/BowenX307/constrained-llm-js-codegen-final' }],
     related: ['lenovo'],
   },
   {
@@ -133,6 +134,7 @@ export const projects: Project[] = [
       { label: '20+ users', text: 'Supabase Realtime keeps avatar movement, shared tasks and chat in sync across 20+ concurrent users.' },
     ],
     stack: ['Next.js', 'Supabase Realtime'],
+    links: [{ label: 'GitHub', href: 'https://github.com/BowenX307/Studuvalley' }],
     related: ['uniai', 'pathforms', 'markets'],
   },
 
@@ -171,6 +173,7 @@ export const projects: Project[] = [
       { label: '3,000 emails', text: 'Processed and vectorized the corpus with TF-IDF term weighting and n-grams to keep contextual phrases.' },
     ],
     stack: ['NLP', 'TF-IDF', 'n-grams'],
+    links: [{ label: 'GitHub', href: 'https://github.com/BowenX307/Springer-Capital-Data-Analysis' }],
     related: ['lenovo'],
   },
   {
@@ -209,6 +212,7 @@ export const projects: Project[] = [
       'Path transformations in colored graphs. An interactive learning environment that implements the Nielsen algorithm, so students can watch it work instead of only reading it.',
     points: [{ label: 'Drag and drop', text: 'Concatenate paths by dragging them together, with real-time visual feedback.' }],
     stack: ['JavaScript', 'React'],
+    links: [{ label: 'GitHub', href: 'https://github.com/BowenX307/PathForms' }],
     related: ['himcm', 'studuvalley'],
   },
   {

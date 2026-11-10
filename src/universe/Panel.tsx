@@ -34,8 +34,9 @@ export function PanelHome({ bodies, hoveredId, onHover, onFocus, onView }: HomeP
   return (
     <div className="panel-home">
       <h1 className="headline">{profile.headline}</h1>
+      {/* 每段连同后面的分隔点一起不断行：折行时 "·" 留在上一行末尾 */}
       <p className="stats mono">
-        {pad2(bodies.length)} projects · {pad2(fields)} fields · Math + CS at UIUC
+        <span>{pad2(bodies.length)} projects ·</span> <span>{pad2(fields)} fields ·</span> <span>Math + CS at UIUC</span>
       </p>
 
       <div className="index" role="list" aria-label="Projects by orbit">
