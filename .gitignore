@@ -1,0 +1,6 @@
+node_modules
+dist
+
+# 简历和 LinkedIn 原件，不提交
+_source/
+.DS_Store

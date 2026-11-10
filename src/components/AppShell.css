@@ -1,0 +1,35 @@
+.shell { position: relative; height: 100%; }
+
+.shell-top {
+  position: absolute;
+  inset: 0 0 auto 0;
+  z-index: var(--z-chrome);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 40px 0 48px;
+  pointer-events: none; /* 不挡住下面宇宙的拖拽 */
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out);
+}
+.shell.is-revealed .shell-top { opacity: 1; transform: none; }
+.shell-top > * { pointer-events: auto; }
+
+.wordmark { display: flex; padding: 0; white-space: nowrap; align-items: center; gap: 12px; font-size: 1.55rem; font-weight: 300; letter-spacing: -0.015em; color: var(--ink); }
+
+.shell-nav { display: flex; gap: 32px; color: var(--muted); }
+.shell-nav > button:not(.sound-toggle) { padding-bottom: 5px; border-bottom: 1px solid transparent; letter-spacing: inherit; text-transform: inherit; transition: color 0.2s, border-color 0.2s; }
+.shell-nav > button:not(.sound-toggle):hover { color: var(--ink); }
+.shell-nav .is-active { color: var(--ink); border-color: var(--ink); }
+/* 声音开关：和导航同一行，用一条竖线隔开 */
+.sound-toggle { margin-left: 4px; padding: 0 0 5px 28px; border-left: 1px solid var(--rule); letter-spacing: inherit; text-transform: inherit; color: var(--muted); transition: color 0.2s; }
+.sound-toggle:hover { color: var(--ink); }
+.sound-toggle[aria-pressed='true'] { color: var(--grey); }
+
+@media (max-width: 899px) {
+  .shell-top { padding: 20px 24px 0; }
+  .wordmark { font-size: 1.2rem; gap: 10px; white-space: nowrap; }
+  .shell-nav { gap: 18px; }
+  .sound-toggle { display: none; }
+}
