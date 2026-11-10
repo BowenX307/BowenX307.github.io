@@ -93,9 +93,6 @@
   bottom: 0;
   left: 0;
   width: 36%;
-  padding: max(112px, 13vh) 32px 40px 48px;
-  overflow-y: auto;
-  scrollbar-width: none;
   opacity: 0;
   transform: translateY(10px);
   transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out);
@@ -103,7 +100,19 @@
 .scene.is-ready .panel { opacity: 1; transform: none; }
 /* 打开项目、About、Contact 时，左列变成实心的一栏，宇宙只出现在右侧；轨道和星球不会从文字后面透出来 */
 .panel { border-right: 1px solid transparent; transition: opacity 1.2s var(--ease-out), transform 1.2s var(--ease-out), background-color 0.6s, border-color 0.6s; }
-.panel.is-solid { background-color: var(--bg); border-color: var(--rule); padding-top: 120px; }
+.panel.is-solid { background-color: var(--bg); border-color: var(--rule); }
+
+/* 能滚动的内容区从顶栏下面开始：长的详情往下滚时，正文不会从名字下面穿过去，而是在上边缘淡出 */
+.panel-scroll {
+  position: absolute;
+  inset: 80px 0 0 0;
+  padding: calc(max(112px, 13vh) - 80px) 32px 40px 48px;
+  overflow-y: auto;
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 28px);
+  mask-image: linear-gradient(to bottom, transparent 0, #000 28px);
+}
+.panel.is-solid .panel-scroll { padding-top: 40px; }
 
 .panel-home { display: flex; flex-direction: column; max-width: 30rem; }
 
@@ -171,7 +180,9 @@
 @media (max-width: 899px) {
   /* 手机：宇宙占上半屏，左列变成下半屏的一块实心面板，可以上下滚动 */
   .panel,
-  .panel.is-solid { top: 50%; width: 100%; padding: 28px 24px 48px; background-color: var(--bg); border-right: 0; border-top: 1px solid var(--rule); touch-action: pan-y; }
+  .panel.is-solid { top: 50%; width: 100%; background-color: var(--bg); border-right: 0; border-top: 1px solid var(--rule); }
+  .panel-scroll,
+  .panel.is-solid .panel-scroll { inset: 0; padding: 28px 24px 48px; -webkit-mask-image: none; mask-image: none; touch-action: pan-y; }
   .headline { font-size: 2.2rem; }
   .label-name { font-size: 9px; letter-spacing: 0.12em; }
   .index { margin-top: 24px; }

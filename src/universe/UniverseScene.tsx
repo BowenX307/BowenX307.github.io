@@ -166,6 +166,7 @@ export function UniverseScene({ projects, onIntroDone, onViewChange, controls }:
       setFocusedId(id);
       setPanelView('home');
       hover(null);
+      rootRef.current?.querySelector('.panel-scroll')?.scrollTo({ top: 0 });
     },
     [hover],
   );
@@ -186,7 +187,7 @@ export function UniverseScene({ projects, onIntroDone, onViewChange, controls }:
     (view: PanelView) => {
       unfocus();
       setPanelView(view);
-      rootRef.current?.querySelector('.panel')?.scrollTo({ top: 0 });
+      rootRef.current?.querySelector('.panel-scroll')?.scrollTo({ top: 0 });
     },
     [unfocus],
   );
@@ -747,6 +748,7 @@ export function UniverseScene({ projects, onIntroDone, onViewChange, controls }:
 
       {/* 左列：标题、项目索引；点开星球时换成这个项目的内容 */}
       <aside className={`panel ${focusedBody || panelView !== 'home' ? 'is-solid' : ''}`}>
+        <div className="panel-scroll">
         {focusedBody ? (
           <ProjectFocus key={focusedBody.id} body={focusedBody} color={labelColor(focusedBody)} onClose={unfocus} />
         ) : panelView === 'about' ? (
@@ -756,6 +758,7 @@ export function UniverseScene({ projects, onIntroDone, onViewChange, controls }:
         ) : (
           <PanelHome bodies={bodies} hoveredId={hoveredId} onHover={hover} onFocus={focus} onView={show} />
         )}
+        </div>
       </aside>
     </div>
   );

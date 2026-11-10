@@ -1,10 +1,10 @@
-// 作品集的全部内容。来源：三版简历（SWE / AIE / Trading）+ LinkedIn 导出（Profile.pdf），2026-11。
+// 作品集的全部内容。来源：三版简历（SWE / AIE / Trading）+ LinkedIn 导出（Profile.pdf）+ AVO 仓库的 README，2026-11。
 // 三版简历有出入时以简历为准（比 LinkedIn 新、更具体）；只写来源里有的事实。
 //
 // 轨道 = 时间，从中心往外长：
 //   0 内圈  Foundations  学校、比赛、课程里的项目
 //   1 中圈  First roles  第一批实习
-//   2 外圈  Now          2026 年正在做 / 刚做完的
+//   2 外圈  Now          2026 年正在做 / 刚做完的（AVO 来自 GitHub 仓库 README，简历上没有）
 // 颜色 = 领域（6 种，见 FIELDS）；星球大小 = 分量；带环 = 获奖。
 
 export type Field = 'ml' | 'research' | 'software' | 'design' | 'data' | 'math';
@@ -90,6 +90,33 @@ export const projects: Project[] = [
     ],
     stack: ['STT → LLM → TTS', 'Streaming inference', 'WebAudio'],
     related: ['studuvalley'],
+  },
+  {
+    id: 'avo',
+    label: 'AVO',
+    title: 'AVO',
+    org: 'Meta Global AI Developer Hackathon 2026',
+    role: 'Solo builder · Indie track',
+    kind: 'Hackathon',
+    when: 'Oct – Nov 2026',
+    orbit: 2,
+    field: 'software',
+    size: 16,
+    summary:
+      'A voice-first Mac app for people who can speak clearly but find precise mouse or trackpad use difficult. Say what you want done; AVO handles the clicks, and asks when your meaning is unclear. It started when I broke my hand climbing during the Lenovo internship.',
+    points: [
+      { label: '0 / 9 silent errors', text: 'On three deliberately ambiguous tasks, full AVO made no silent errors and got 9 of 9 right; the agent alone made 7 silent errors in 9. Small controlled tests on fictional pages, not a user study.' },
+      { label: 'Two questions', text: '“Which person do you mean?” and “Can I send this?” are different questions. AVO asks the first when a target is ambiguous, and shows a preview before sends and other irreversible actions.' },
+      { label: '33% → 100%', text: 'With simulated 8px pointing error on 12px targets, direct pointing hit 33%; SAM segmentation plus name matching from macOS accessibility hit 100%.' },
+      { label: 'AVO Remote', text: 'Send a task from a paired phone on the same Wi-Fi, and answer its questions on a cropped, numbered view of the screen.' },
+    ],
+    stack: ['Meta Muse models', 'SAM 3.1', 'Realtime ASR', 'macOS accessibility', 'Python', 'Electron'],
+    links: [
+      { label: 'Demo', href: 'https://www.youtube.com/watch?v=u7045Y1N5V0' },
+      { label: 'Website', href: 'https://bowenx307.github.io/AVO/' },
+      { label: 'GitHub', href: 'https://github.com/BowenX307/AVO' },
+    ],
+    related: ['uniai', 'lenovo'],
   },
   {
     id: 'decoding',
